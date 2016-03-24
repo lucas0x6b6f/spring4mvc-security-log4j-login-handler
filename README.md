@@ -6,22 +6,22 @@ Package Package
 The Setting of spring-security.xml
 ----------------------------
 1.handler-ref:
-
-		authentication-success-handler-ref="LoginSucessHandler"
-		authentication-failure-handler-ref="LoginFailureHandler"
-
+```xml
+	authentication-success-handler-ref="LoginSucessHandler"
+	authentication-failure-handler-ref="LoginFailureHandler"
+```
 2.bean id:
-	
-		<bean id="LoginSucessHandler" class="com.lucasko.handler.LoginSucessHandler" />
-		<bean id="LoginFailureHandler" class="com.lucasko.handler.LoginFailureHandler" />
-		
+```xml
+	<bean id="LoginSucessHandler" class="com.lucasko.handler.LoginSucessHandler" />
+	<bean id="LoginFailureHandler" class="com.lucasko.handler.LoginFailureHandler" />
+```	
 3.accounts:
 ```xml
 	<user name="admin" password="P@ssw0rd" authorities="ROLE_ADMIN" />
 	<user name="user" password="P@ssw0rd" authorities="ROLE_USER" />
 ```
 
-4.
+4.intercept url by role
 ```XML
 	<security:intercept-url pattern="/admin**"  access="ROLE_ADMIN" />
 	<security:intercept-url pattern="/user**"	access="ROLE_USER" />
@@ -39,7 +39,7 @@ log4j.appender.stdout.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1
 
 Run Project on Server
 -----------------------------
-1.[Markdown](http://127.0.0.1:8080/spring4mvc-security-login-log-handler/)
+1.[http://127.0.0.1:8080/spring4mvc-security-login-log-handler/](http://127.0.0.1:8080/spring4mvc-security-login-log-handler/)
 
 2.The logger of login admin:P@ssw0rd (LoginSucessHandler.java):
 
@@ -61,6 +61,10 @@ Run Project on Server
 Before login
 -----------------------------
 ![image](https://github.com/lucas0x6b6f/spring4mvc-security-log4j-login-handler/blob/master/src/main/resources/before-login.png)
+
+
+
+
 
 
 After login
